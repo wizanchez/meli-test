@@ -28,6 +28,7 @@ export interface IItemDetailResponse
   picture: string;
   free_shipping: boolean;
   sold_quantity: number;
+  amountFormatted?: string;
   description: string;
 }
 

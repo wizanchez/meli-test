@@ -28,11 +28,15 @@ export const ItemListCard = (props: IItemListCardProps) => {
       onKeyDown={() => onItemSelected(props.item)}
     >
       <div className="item-list-card__picture">
-        <img src={picture} alt="" />
+        {/* <img src={picture} alt="" /> */}
+        <div
+          className="item-list-card__picture__img"
+          style={{ backgroundImage: `url(${picture})` }}
+        />
       </div>
       <div className="item-list-card__data">
         <div className="item-list-card__data__price-city">
-          <div className="item-list-card__data__price">
+          <div className="item-list-card__data__price ">
             <div>
               {amountFormatted}{" "}
               <small className="item-list-card__data__price__currency">

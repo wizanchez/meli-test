@@ -53,7 +53,7 @@ export class ItemModel {
       const rows = resp?.rows ?? {};
       const results = rows.results ?? [];
       const categories = rows.filters
-        ? this.getCategories(rows.filters, rows.available_filters)
+        ? await this.getCategories(rows.filters, results?.[0]?.category_id)
         : [];
       const items = this.transformItems(results);
       const dataSend = {
@@ -70,11 +70,12 @@ export class ItemModel {
     }
   };
 
-  private static getCategories = (
+  private static getCategories = async (
     filters: IFilter[],
-    availableFilters: IFilter[]
+    category: string
   ) => {
     const categories = filters.find((filter) => filter.id === "category");
+
     if (categories) {
       const newCategories = categories.values.flatMap((value) =>
         value?.path_from_root?.map((path) => path.name)
@@ -83,16 +84,15 @@ export class ItemModel {
         return newCategories;
       }
     }
-
-    const categoriesAvailable = availableFilters.find(
-      (filter) => filter.id === "category"
-    );
-
-    if (!categoriesAvailable) {
-      return [];
+    if (category) {
+      const resp = await Search.getSearch({
+        filters: { category, limit: 1 },
+      });
+      const rows = resp?.rows ?? {};
+      const filters2 = rows.filters ?? [];
+      return this.getCategories(filters2, "");
     }
-
-    return categoriesAvailable.values.map((path) => path.name);
+    return [];
   };
 
   private static transformItems(items: IItems[]): IItemsResponse[] {
@@ -178,18 +178,3 @@ export class ItemModel {
 }
 
 export default ItemModel;
-/**
- "id": String,
-"title": String,
-"price": {
-  "currency": String,
-  "amount": Number,
-  "decimals": Number,
-},
-“picture”: String,
-"condition": String,
-"free_shipping": Boolean,
-"sold_quantity"
-, Number
-"description": String
- */

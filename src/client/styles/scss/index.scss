@@ -36,14 +36,97 @@
 .col-3 {
   @include col(3);
 }
+.col-4 {
+  @include col(4);
+}
+.col-5 {
+  @include col(5);
+}
+.col-6 {
+  @include col(6);
+}
+.col-7 {
+  @include col(7);
+}
+.col-8 {
+  @include col(8);
+}
+.col-9 {
+  @include col(9);
+}
+.col-10 {
+  @include col(10);
+}
+.col-11 {
+  @include col(11);
+}
+.col-12 {
+  @include col(12);
+}
 
-/* Puedes agregar las clases responsivas */
 .col-md-6 {
   @include col-md(6);
+}
+.col-md-1 {
+  @include col-md(1);
+}
+.col-md-2 {
+  @include col-md(2);
+}
+.col-md-3 {
+  @include col-md(3);
+}
+.col-md-4 {
+  @include col-md(4);
+}
+.col-md-5 {
+  @include col-md(5);
+}
+.col-md-7 {
+  @include col-md(7);
+}
+.col-md-8 {
+  @include col-md(8);
+}
+.col-md-9 {
+  @include col-md(9);
+}
+.col-md-10 {
+  @include col-md(10);
+}
+.col-md-11 {
+  @include col-md(11);
+}
+.col-md-12 {
+  @include col-md(12);
 }
 
 .col-lg-4 {
   @include col-lg(4);
+}
+.col-lg-5 {
+  @include col-lg(5);
+}
+.col-lg-6 {
+  @include col-lg(6);
+}
+.col-lg-7 {
+  @include col-lg(7);
+}
+.col-lg-8 {
+  @include col-lg(8);
+}
+.col-lg-9 {
+  @include col-lg(9);
+}
+.col-lg-10 {
+  @include col-lg(10);
+}
+.col-lg-11 {
+  @include col-lg(11);
+}
+.col-lg-12 {
+  @include col-lg(12);
 }
 
 .header__logo {
@@ -167,7 +250,7 @@
 .content {
   flex: 1;
   display: flex;
-  padding: 20px;
+  padding: 16px;
   justify-content: center;
   background: var(--color-bg);
 }
@@ -180,8 +263,8 @@
 }
 
 .card {
-  min-width: var(--card-max-w);
-  max-width: var(--card-max-w);
+  min-width: var(--card-container-max-w);
+  max-width: var(--card-container-max-w);
   background: var(--color-white);
   border-radius: 4px;
   padding: var(--card-padding);
@@ -200,6 +283,14 @@
     height: 180px;
     padding: 4px;
     margin-right: 12px;
+    display: flex;
+
+    & .item-list-card__picture__img {
+      flex: 1;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
 
     & img {
       background-size: cover;
@@ -222,6 +313,10 @@
       & .item-list-card__data__price {
         font-size: 24px;
         display: flex;
+        @extend .col-9;
+        @extend .col-md-9 !optional;
+        @extend .col-lg-9 !optional;
+        padding-left: 0px;
 
         & .item-list-card__data__price__currency {
           font-size: 0.5em;
@@ -238,12 +333,83 @@
 
       & .item-list-card__data__city {
         font-size: 12px;
-        margin-right: 60px;
         color: var(--color-tertiary);
+        @extend .col-3;
+        @extend .col-md-3 !optional;
+        @extend .col-lg-3 !optional;
+        padding-left: 0px;
       }
     }
     & .item-list-card__data__title {
       font-size: 18px;
     }
   }
+}
+
+/** card-detail */
+.card-detail {
+  padding: 16px;
+
+  & .card-detail__header {
+    display: flex;
+    margin-bottom: 80px;
+
+    & .card-detail__header__image {
+      width: 560px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  & .card-detail__body {
+    & .card-detail__body__title {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    & .card-detail__description {
+      font-size: 16px;
+    }
+  }
+}
+
+.header-feature-list {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  & .header-feature-list__condition {
+    font-size: 14px;
+    color: var(--color-tertiary);
+    margin-bottom: 7px;
+  }
+
+  & .header-feature-list__title {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  & .header-feature-list__price {
+    font-size: 46px;
+    font-size: clamp(16px, 10vw, 46px);
+    word-wrap: break-word;
+    width: 247px;
+  }
+  & .header-feature-list__buy {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-senary);
+    border-radius: 6px;
+    color: var(--color-white);
+    padding: 12px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    &:hover {
+      background-color: var(--color-septenary);
+    }
+  }
+}
+
+.andes-breadcrumb {
+  margin-bottom: 16px;
 }

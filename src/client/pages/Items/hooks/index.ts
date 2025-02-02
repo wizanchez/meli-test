@@ -10,7 +10,7 @@ import { transformData } from "../utils";
 
 export const useItems = (props: IInitialsProps) => {
   const { rows } = props;
-  const pageInitialHookState = {
+  const pageInitialHookState: IpageInitialState = {
     ...pageInitialState,
     loading: false,
     itemList: transformData(rows?.items ?? []),
