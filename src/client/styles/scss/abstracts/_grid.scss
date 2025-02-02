@@ -1,0 +1,43 @@
+// Variables para las columnas
+$container-width: 1200px; // O el ancho del contenedor principal
+$columns: 12;
+$gutter-width: 30px; // Espaciado entre las columnas
+
+// Calcular el ancho de cada columna
+$column-width: ($container-width - ($gutter-width * ($columns - 1))) / $columns;
+
+// Mixin para las filas
+@mixin row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -($gutter-width / 2);
+  margin-right: -($gutter-width / 2);
+}
+
+// Mixin para las columnas
+@mixin col($size) {
+  flex: 0 0 calc(100% / #{$columns} * #{$size});
+  max-width: calc(100% / #{$columns} * #{$size});
+  padding-left: $gutter-width / 2;
+  padding-right: $gutter-width / 2;
+}
+
+// Crear las clases para cada tamaño de columna
+@for $i from 1 through $columns {
+  .col-#{$i} {
+    @include col($i);
+  }
+}
+
+// Para columnas de diferentes tamaños en dispositivos
+@mixin col-md($size) {
+  @media (min-width: 768px) {
+    @include col($size);
+  }
+}
+
+@mixin col-lg($size) {
+  @media (min-width: 992px) {
+    @include col($size);
+  }
+}

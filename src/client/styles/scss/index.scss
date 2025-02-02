@@ -1,0 +1,249 @@
+/** abstracts */
+@use "./abstracts/variables";
+@use "./abstracts/mixins";
+
+/** base */
+@use "./base/_base";
+@use "./base/_resets";
+
+/** components */
+@import "./abstracts/grid";
+
+.header {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  min-height: var(--header-min-height);
+}
+.container {
+  max-width: var(--card-max-w);
+  margin: 0 auto;
+
+  padding: 8px 10px 12px 10px;
+}
+
+.row {
+  @include row;
+}
+
+.col-1 {
+  @include col(1);
+}
+
+.col-2 {
+  @include col(2);
+}
+
+.col-3 {
+  @include col(3);
+}
+
+/* Puedes agregar las clases responsivas */
+.col-md-6 {
+  @include col-md(6);
+}
+
+.col-lg-4 {
+  @include col-lg(4);
+}
+
+.header__logo {
+  justify-content: center;
+  img {
+    height: 34px;
+  }
+}
+
+.flex {
+  display: flex;
+
+  align-items: center;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.center-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-input {
+  @extend .w-full;
+  position: relative;
+  display: inline-block;
+  border: 1px solid var(--color-white);
+  border-radius: 3px;
+  input {
+    width: 100%;
+    padding: 10px;
+    padding-right: 30px;
+    border: 1px solid var(--color-white);
+    border-radius: 0px;
+    outline: none;
+    padding-left: 20px;
+    &:focus {
+      border-color: var(--color-senary); // Cambia el color del borde al enfocar
+      border-width: 1px; // Establece un borde delgado
+    }
+  }
+  .search-icon {
+    position: absolute;
+    top: -1px; /* Mueve el ícono arriba del input */
+    background: white; /* Fondo para que no se mezcle */
+    padding: 2px 5px;
+    font-size: 18px;
+    color: #555;
+    height: 40px;
+    width: 40px;
+    right: -1px;
+    background: var(--color-btn-primary);
+    border-radius: 0px 3px 3px 0px;
+    @extend .center-center;
+  }
+}
+
+.form-search {
+  position: relative;
+}
+
+.form-suggestions {
+  position: absolute;
+  width: 100%;
+  border: 1px solid var(--color-quinary);
+  background: var(--color-white);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 212px;
+  overflow-y: auto;
+  border-radius: 0px;
+  box-shadow: 0 1px 2px 0 var(--color-box-shadow);
+  padding: 8px 0;
+}
+
+.selected {
+  background: var(--color-senary);
+  color: var(--color-white);
+}
+
+.form-suggestions-li {
+  padding: 6px 0 6px 48px;
+  cursor: pointer;
+  &:hover {
+    @extend .selected;
+  }
+  &::before {
+    // top: 0.7em;
+    background: url('data:image/svg+xml;charset=UTF-8,%3Csvg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">%3Cg fill="%23CCCCCC" fill-rule="evenodd">%3Cpath d="M10.915 10.167l4.955 4.955-.749.748-4.954-4.954z"/>%3Cpath d="M6.612 13.223A6.612 6.612 0 1 1 6.612 0a6.612 6.612 0 0 1 0 13.223zm0-1.058a5.554 5.554 0 1 0 0-11.107 5.554 5.554 0 0 0 0 11.107z"/>%3C/g>%3C/svg>')
+      center center no-repeat;
+    width: 16px;
+    height: 16px;
+    content: "";
+    display: block;
+    position: absolute;
+    left: 1em;
+  }
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  width: 100%;
+
+  & p {
+    margin: 0;
+  }
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  background: var(--color-bg);
+}
+
+#app {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card {
+  min-width: var(--card-max-w);
+  max-width: var(--card-max-w);
+  background: var(--color-white);
+  border-radius: 4px;
+  padding: var(--card-padding);
+}
+
+.item-list-card {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid var(--color-quinary);
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  cursor: pointer;
+
+  & .item-list-card__picture {
+    width: 180px;
+    height: 180px;
+    padding: 4px;
+    margin-right: 12px;
+
+    & img {
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+    }
+  }
+  & .item-list-card__data {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    & .item-list-card__data__price-city {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      margin-top: 32px;
+
+      & .item-list-card__data__price {
+        font-size: 24px;
+        display: flex;
+
+        & .item-list-card__data__price__currency {
+          font-size: 0.5em;
+          color: var(--color-tertiary);
+        }
+
+        & .item-list-card__data__price__free_shipping {
+          margin-left: 10px;
+          & img {
+            width: 18px;
+          }
+        }
+      }
+
+      & .item-list-card__data__city {
+        font-size: 12px;
+        margin-right: 60px;
+        color: var(--color-tertiary);
+      }
+    }
+    & .item-list-card__data__title {
+      font-size: 18px;
+    }
+  }
+}
