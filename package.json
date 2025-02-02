@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build:css": "sass src/client/styles/scss/index.scss dist/styles/main.css",
-    "build-dev2": "NODE_ENV=development npm run build-client && npm run build-server",
+    "build-dev2": "NODE_ENV=development npm run build-client && NODE_ENV=development npm run build-server",
     "build": "NODE_ENV=production npm run build-client && npm run build-server",
     "build-client": "webpack --config webpack.config.client.js",
     "build-server": "webpack --config webpack.config.server.js",

@@ -9,8 +9,10 @@ export default (app: Router) => {
   /**
    * GET:  *
    * */
+  // app.get("/items/MLA1970592170", controller.itemList);
   app.get("/items", controller.itemList);
 
+  app.get("/items/:id", controller.detail);
   app.get("/items/:id/:description", controller.detail);
 
   //region :POST

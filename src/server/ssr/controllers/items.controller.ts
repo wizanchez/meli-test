@@ -36,11 +36,10 @@ const detail = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const id = req.params.id as string;
 
-    console.log("id__:::", id);
-
     const dataSend = await ItemModel.getItemDetail({ id });
-    console.log("dataSend__:::", dataSend);
+    console.log("dataSend__:::", "PPPPP___", { dataSend, id });
     const html = render(req.url, dataSend);
+    console.log("dataSend__:::", "🌏🌏🌏🌏🌏___", { dataSend, id });
 
     res.send(html);
   } catch (err) {

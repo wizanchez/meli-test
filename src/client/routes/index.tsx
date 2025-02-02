@@ -17,11 +17,11 @@ export const App = (props: any) => {
         <Routes>
           <Route index path="/" element={<Home />} />
           <Route path="/items" element={<Items {...props} />} />
+          <Route path="/items/:id" element={<ItemDetail {...props} />} />
           <Route
             path="/items/:id/:description"
             element={<ItemDetail {...props} />}
           />
-          <Route path="/test-ssr" element={<TestSsr {...props} />} />
         </Routes>
       </Container>
       <Footer />

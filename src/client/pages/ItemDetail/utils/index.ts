@@ -1,18 +1,16 @@
-import { IItemsResponse } from "../../../../services/interfaces";
+import { IItemDetailResponse } from "../../../../services/interfaces";
 
-export const transformData = (data: IItemsResponse[]) => {
-  return data.map((item) => {
-    const {
-      title,
-      price: { amount },
-    } = item;
+export const transformData = (
+  data: IItemDetailResponse
+): IItemDetailResponse => {
+  const {
+    price: { amount },
+  } = data;
 
-    return {
-      ...item,
-      amountFormatted: customCurrencyFormatter(amount),
-      titleSlug: slugify(title),
-    };
-  });
+  return {
+    ...data,
+    amountFormatted: customCurrencyFormatter(amount),
+  };
 };
 
 const customCurrencyFormatter = (value: number) =>

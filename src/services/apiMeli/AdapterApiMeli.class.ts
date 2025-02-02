@@ -34,13 +34,18 @@ export class AdapterApiMeli extends Orm {
     props: IOrmGet = {}
   ): Promise<IHttpResponse<any>> {
     try {
+      console.log("find____", "🥃🥃🥃🥃🥃🥃", { id, props });
       props.path = id as string;
       props.isDataExternal = true;
       const result = await super.getOrm(apiMeliDBFetch, props);
 
       return result;
     } catch (err: any) {
-      console.error("ERROR____apiMeliDBFetch.find", { err, apiMeliDBFetch });
+      console.error("ERROR____apiMeliDBFetch.find", {
+        id,
+        err,
+        apiMeliDBFetch,
+      });
       throw err;
     }
   }
