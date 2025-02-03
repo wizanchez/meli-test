@@ -1,107 +1,13 @@
 import React from "react";
+import { PageHomeProvider } from "./context";
+import { Slide, SlideCategory } from "./components";
+import { IInitialsProps } from "./interfaces";
 
-export const Home = () => {
+export const Home = (props: IInitialsProps) => {
   return (
-    <div>
-      Home Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-      aspernatur molestiae doloribus sapiente commodi adipisci labore ab,
-      aperiam accusamus quidem excepturi distinctio soluta eum, inventore
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      Home Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-      aspernatur molestiae doloribus sapiente commodi adipisci labore ab,
-      aperiam accusamus quidem excepturi distinctio soluta eum, inventore
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      Home Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-      aspernatur molestiae doloribus sapiente commodi adipisci labore ab,
-      aperiam accusamus quidem excepturi distinctio soluta eum, inventore
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      Home Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-      aspernatur molestiae doloribus sapiente commodi adipisci labore ab,
-      aperiam accusamus quidem excepturi distinctio soluta eum, inventore
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      Home Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-      aspernatur molestiae doloribus sapiente commodi adipisci labore ab,
-      aperiam accusamus quidem excepturi distinctio soluta eum, inventore
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      Home Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-      aspernatur molestiae doloribus sapiente commodi adipisci labore ab,
-      aperiam accusamus quidem excepturi distinctio soluta eum, inventore
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      Home Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-      aspernatur molestiae doloribus sapiente commodi adipisci labore ab,
-      aperiam accusamus quidem excepturi distinctio soluta eum, inventore
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      Home Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-      aspernatur molestiae doloribus sapiente commodi adipisci labore ab,
-      aperiam accusamus quidem excepturi distinctio soluta eum, inventore
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      Home Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-      aspernatur molestiae doloribus sapiente commodi adipisci labore ab,
-      aperiam accusamus quidem excepturi distinctio soluta eum, inventore
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      Home Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-      aspernatur molestiae doloribus sapiente commodi adipisci labore ab,
-      aperiam accusamus quidem excepturi distinctio soluta eum, inventore
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      Home Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-      aspernatur molestiae doloribus sapiente commodi adipisci labore ab,
-      aperiam accusamus quidem excepturi distinctio soluta eum, inventore
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      Home Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-      aspernatur molestiae doloribus sapiente commodi adipisci labore ab,
-      aperiam accusamus quidem excepturi distinctio soluta eum, inventore
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      Home Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-      aspernatur molestiae doloribus sapiente commodi adipisci labore ab,
-      aperiam accusamus quidem excepturi distinctio soluta eum, inventore
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      Home Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-      aspernatur molestiae doloribus sapiente commodi adipisci labore ab,
-      aperiam accusamus quidem excepturi distinctio soluta eum, inventore
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      Home Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-      aspernatur molestiae doloribus sapiente commodi adipisci labore ab,
-      aperiam accusamus quidem excepturi distinctio soluta eum, inventore
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      Home Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-      aspernatur molestiae doloribus sapiente commodi adipisci labore ab,
-      aperiam accusamus quidem excepturi distinctio soluta eum, inventore
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-      Home Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-      aspernatur molestiae doloribus sapiente commodi adipisci labore ab,
-      aperiam accusamus quidem excepturi distinctio soluta eum, inventore
-      consequuntur quia fugiat aliquam sequi.
-      <br />
-    </div>
+    <PageHomeProvider {...props}>
+      <Slide />
+      <SlideCategory />
+    </PageHomeProvider>
   );
 };

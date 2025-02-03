@@ -31,9 +31,13 @@ export class ItemModel {
       const respDescrip = await Items.find(`${id}/description`);
       const items = this.transformItemsDetailOne(rows);
 
+      const categories = await this.getCategories([], rows?.category_id);
       return {
         total: 1,
-        rows: { ...items, description: respDescrip?.rows?.plain_text },
+        rows: {
+          categories,
+          items: { ...items, description: respDescrip?.rows?.plain_text },
+        },
       };
     } catch (err) {
       throw err;

@@ -13,7 +13,8 @@ export const useItemDetail = (props: IInitialsProps) => {
   const pageInitialHookState: IpageInitialState = {
     ...pageInitialState,
     loading: false,
-    itemDetail: transformData(rows ?? {}),
+    itemDetail: transformData(rows.items ?? {}),
+    categories: rows?.categories ?? [],
   };
   const [state, setState] = useState<IpageInitialState>(pageInitialHookState);
 

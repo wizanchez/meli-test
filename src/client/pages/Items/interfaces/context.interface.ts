@@ -23,6 +23,7 @@ export interface IItemsContainerProps {
 
 export interface IpageInitialState {
   loading: boolean;
+  categories: string[];
   itemList: IItemsResponse[];
 }
 

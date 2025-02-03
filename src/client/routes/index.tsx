@@ -15,7 +15,7 @@ export const App = (props: any) => {
       <SmartSearch />
       <Container>
         <Routes>
-          <Route index path="/" element={<Home />} />
+          <Route index path="/" element={<Home {...props} />} />
           <Route path="/items" element={<Items {...props} />} />
           <Route path="/items/:id" element={<ItemDetail {...props} />} />
           <Route
