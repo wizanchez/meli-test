@@ -62,7 +62,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "styles/[name].css", // Nombre del archivo CSS generado
+      filename: "public/styles/[name].css", // Nombre del archivo CSS generado
     }),
     new CopyWebpackPlugin({
       patterns: [{ from: path.resolve(__dirname, "public"), to: "assets" }],
