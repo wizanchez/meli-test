@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node src/server/index.ts",
-    "build": "cd src/client && yarn run build",
+    "build": "react-scripts build",
+    "vercel-build": "react-scripts build",
     "dev": "concurrently \"yarn dev-server\" \"yarn dev-client\"",
     "dev-server": "nodemon src/server/index.ts",
     "dev-client": "cd src/client && yarn start"
@@ -19,6 +20,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "axios": "^1.7.9",
+    "react-scripts": "^5.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.21.2",
