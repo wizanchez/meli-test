@@ -64,6 +64,6 @@
     "webpack-node-externals": "^3.0.0"
   },
   "engines": {
-    "node": "20.13.1"
+    "node": "20.18.2"
   }
 }
