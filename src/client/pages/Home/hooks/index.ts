@@ -6,15 +6,13 @@ import {
   IpageInitialState,
 } from "../interfaces/context.interface";
 import { IItemsResponse } from "../../../../services/interfaces";
-import { transformData } from "../utils";
 
-export const useItems = (props: IInitialsProps) => {
-  const { rows } = props;
+export const useDashBoard = (props: IInitialsProps) => {
+  const { categories } = props;
   const pageInitialHookState: IpageInitialState = {
     ...pageInitialState,
     loading: false,
-    itemList: transformData(rows?.items ?? []),
-    categories: rows?.categories ?? [],
+    categories: categories ?? [],
   };
   const [state, setState] = useState<IpageInitialState>(pageInitialHookState);
 
@@ -48,4 +46,4 @@ export const useItems = (props: IInitialsProps) => {
     },
   };
 };
-export default useItems;
+export default useDashBoard;
