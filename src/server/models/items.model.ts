@@ -77,7 +77,7 @@ export class ItemModel {
   private static getCategories = async (
     filters: IFilter[],
     category: string
-  ) => {
+  ): Promise<string[]> => {
     const categories = filters.find((filter) => filter.id === "category");
 
     if (categories) {
@@ -85,7 +85,7 @@ export class ItemModel {
         value?.path_from_root?.map((path) => path.name)
       );
       if (newCategories.length > 0) {
-        return newCategories;
+        return newCategories as string[];
       }
     }
     if (category) {

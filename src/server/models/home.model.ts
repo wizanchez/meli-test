@@ -14,7 +14,7 @@ export class HomeModel {
         const element = categories[index];
         const id = element.id;
         const respDetail = (await Categories.getInfoCategory(id)).rows;
-        categories[index]["detail"] = {
+        categories[index].detail = {
           picture: respDetail?.picture,
           description: `${respDetail?.children_categories[0].name}, ${respDetail?.children_categories[1].name}`,
         };
