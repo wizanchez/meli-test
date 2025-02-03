@@ -3,7 +3,7 @@ import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 
 import { template } from "./template";
-import { App } from "../../../client/routes";
+import { App } from "../../client/routes";
 import { ServerStyleSheet } from "styled-components";
 
 export const render = (url: string, initialProps = {}): string => {

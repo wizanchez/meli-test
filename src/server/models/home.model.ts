@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-import { Categories } from "../../../services/apiMeli";
+import { Categories } from "../../services/apiMeli";
 
 export class HomeModel {
   public static getCategories = async () => {

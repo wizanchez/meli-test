@@ -1,15 +1,15 @@
 import { NextFunction, Request, Response } from "express";
 
-import { Search, Items } from "../../../services/apiMeli";
-import { RESULT_LIMIT } from "../../../config/constants";
-import { countDecimals, isNumeric } from "../../../utils/var";
+import { Search, Items } from "../../services/apiMeli";
+import { RESULT_LIMIT } from "../../config/constants";
+import { countDecimals, isNumeric } from "../../utils/var";
 import {
   IItems,
   IFilter,
   IItemDetail,
   IItemsResponse,
   IItemDetailResponse,
-} from "../../../services/interfaces/item.interface";
+} from "../../services/interfaces/item.interface";
 
 interface IGetItemListProps {
   query: string;

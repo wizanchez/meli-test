@@ -10,7 +10,7 @@ const isDev = process.env.NODE_ENV !== "production";
 
 module.exports = {
   name: "server",
-  entry: "./src/server/ssr/index.ts",
+  entry: "./src/server/index.ts",
   target: "node",
   mode,
   stats: "errors-only",
