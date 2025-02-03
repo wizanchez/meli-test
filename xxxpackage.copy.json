@@ -3,15 +3,20 @@
   "packageManager": "yarn@3.6.4",
   "version": "1.0.0",
   "description": "prueba meli",
-  "main": "src/server/server.js",
+  "main": "index.js",
   "author": "wizanchez <wianchez@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node src/server/index.ts",
-    "build": "cd src/client && yarn run build",
-    "dev": "concurrently \"yarn dev-server\" \"yarn dev-client\"",
-    "dev-server": "nodemon src/server/index.ts",
-    "dev-client": "cd src/client && yarn start"
+    "build:css": "sass src/client/styles/scss/index.scss dist/styles/main.css",
+    "build-dev2": "NODE_ENV=development npm run build-client && NODE_ENV=development npm run build-server",
+    "build-ori": "NODE_ENV=production npm run build-client && npm run build-server",
+    "build-client": "webpack --config webpack.config.client.js",
+    "build-server": "webpack --config webpack.config.server.js",
+    "build-dev": "NODE_ENV=development npm run build-server && node --inspect dist/index.js",
+    "dev": "nodemon --ext ts --exec ts-node \"npm run build-dev\"",
+    "start-ori": "NODE_ENV=production npm run build",
+    "start": "NODE_ENV=production npm run build && NODE_ENV=production node dist/index.js",
+    "start-dev": " NODE_ENV=development npm run build-dev2 && NODE_ENV=development node dist/index.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
