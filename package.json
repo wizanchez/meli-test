@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node src/server/index.ts",
     "build": "react-scripts build && npm run build-dev",
-    "vercel-build": "react-scripts build-client",
+    "vercel-build": "NODE_ENV=production npm run build-dev",
     "build-server": "webpack --config webpack.config.server.js",
     "build-client": "webpack --config webpack.config.client.js",
     "dev": "concurrently \"yarn dev-server\" \"yarn dev-client\"",
