@@ -9,6 +9,13 @@
       }
     },
     {
+      "src": "src/server/index.ts",
+      "use": "@vercel/node",
+      "config": {
+        "outputDirectory": "dist"
+      }
+    },
+    {
       "src": "public/**",
       "use": "@vercel/static"
     }
