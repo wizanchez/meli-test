@@ -14,9 +14,21 @@
       "config": {
         "outputDirectory": "dist"
       }
+    },
+    {
+      "src": "/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/static/assets/$1"
+    },
     {
       "src": "/(.*)",
       "dest": "/src/server/index.ts"
