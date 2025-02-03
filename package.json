@@ -10,10 +10,13 @@
     "start": "node src/server/index.ts",
     "build": "react-scripts build",
     "vercel-build": "react-scripts build-client",
+    "build-server": "webpack --config webpack.config.server.js",
     "build-client": "webpack --config webpack.config.client.js",
     "dev": "concurrently \"yarn dev-server\" \"yarn dev-client\"",
     "dev-server": "nodemon src/server/index.ts",
-    "dev-client": "cd src/client && yarn start"
+    "dev-client": "cd src/client && yarn start",
+    "build-dev": "NODE_ENV=production npm run build-client && npm run build-server",
+    "start-dev": "NODE_ENV=production npm run build-dev && NODE_ENV=production node dist/index.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
