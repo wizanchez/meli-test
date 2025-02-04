@@ -30,6 +30,8 @@ export interface IItemDetailResponse
   sold_quantity: number;
   amountFormatted?: string;
   description: string;
+  thumbnail?: string;
+  slug?: string;
 }
 
 export interface IItemResponse {

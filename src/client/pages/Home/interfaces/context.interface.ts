@@ -10,6 +10,7 @@ export interface ICategoryCardProps {
 export interface ICategory {
   id: string;
   name: string;
+  slug?: string;
   detail: {
     picture: string;
     description: string;
@@ -18,6 +19,7 @@ export interface ICategory {
 
 export interface IInitialsProps {
   categories: ICategory[];
+  lastItemsVisited: IItemDetailResponse[];
 }
 
 export interface IPageProvider extends IInitialsProps {
@@ -27,6 +29,7 @@ export interface IPageProvider extends IInitialsProps {
 export interface IpageInitialState {
   loading: boolean;
   categories: ICategory[];
+  lastItemsVisited: IItemDetailResponse[];
 }
 
 export interface IpageInitialContext extends IpageInitialState {

@@ -1,7 +1,11 @@
 import React from "react";
 import { IChildrenProps } from "../interfaces/general";
 
-export const ItemsContainer = (props: IChildrenProps) => {
-  const { children } = props;
-  return <div className="card">{children}</div>;
+interface ItemsContainer extends IChildrenProps {
+  className?: string;
+}
+export const ItemsContainer = (props: ItemsContainer) => {
+  const { children, className } = props;
+
+  return <div className={`card ${className}`}>{children}</div>;
 };

@@ -1,4 +1,5 @@
 import { IItemsResponse } from "../../../../services/interfaces";
+import { slugify, customCurrencyFormatter } from "../../../../utils/formatter";
 
 export const transformData = (data: IItemsResponse[]) => {
   return data.map((item) => {
@@ -13,14 +14,4 @@ export const transformData = (data: IItemsResponse[]) => {
       titleSlug: slugify(title),
     };
   });
-};
-
-const customCurrencyFormatter = (value: number) =>
-  "$ " +
-  Math.floor(value)
-    .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-const slugify = (str: string) => {
-  return str.trim().replace(/\s+/g, "-").toLowerCase();
 };
