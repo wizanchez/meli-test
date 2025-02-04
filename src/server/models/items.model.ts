@@ -6,6 +6,7 @@ import { Search, Items } from "../../services/apiMeli";
 import { RESULT_LIMIT } from "../../config/constants";
 import { countDecimals, isNumeric } from "../../utils/var";
 import { shortenDescription } from "../../utils/formatter";
+
 const DATA_FS_ITEMS_LAST_VISITED =
   process.env.REACT_DATA_FS_ITEMS_LAST_VISITED ?? "";
 const filePath = path.join(__dirname, DATA_FS_ITEMS_LAST_VISITED);

@@ -29,8 +29,14 @@ export class HomeModel {
 
   public static getLastItemsVisited = async () => {
     const resp = await ItemModel.getItemLastVisited();
-    console.log("resprespresprespresp___🌈🌈🌈🌈🌈", resp);
     return resp.rows;
+  };
+
+  public static getJsonStatic = async () => {
+    const response = await fetch(
+      "https://futbolwin.com/item-data-last-visited.json"
+    );
+    return response.json();
   };
 }
 
