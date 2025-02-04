@@ -30,7 +30,6 @@ interface IGetItemDetailProps {
 
 export class ItemModel {
   public static getItemDetail = async (props: IGetItemDetailProps) => {
-    // try {
     const { id } = props;
 
     const resp = await Items.find(id);
@@ -59,9 +58,6 @@ export class ItemModel {
       total: 1,
       rows: dataItemSend,
     };
-    // } catch (err) {
-    //   throw err;
-    // }
   };
 
   public static getItemLastVisited = async (): Promise<any> =>
