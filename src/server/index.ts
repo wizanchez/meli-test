@@ -1,14 +1,11 @@
-import express, { Express, Request, Response } from "express";
+import express, { Express } from "express";
 import { config } from "./config";
-// import { template } from "./render/template";
-import { render } from "./render";
 
 import cors from "cors";
 import routes from "./routes";
 import home from "./controllers/home.controller";
 
 const app: Express = express();
-// const apiLocal = express.Router();
 
 app.use(
   cors({
@@ -17,16 +14,20 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "connect-src 'self' https://api.mercadolibre.com https://http2.mlstatic.com;"
+  );
+  next();
+});
 app.use(express.static("dist"));
 
 /**
  * API LOCAL
  */
 app.use("/", routes());
-
-// app.get("*", (req: Request, res: Response) => {
-//   res.send(render(req.url));
-// });
 app.get("*", home.dashBoard);
 
 app.listen(config.PORT, () => {

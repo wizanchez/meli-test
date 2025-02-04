@@ -8,6 +8,7 @@ import { ServerStyleSheet } from "styled-components";
 
 export const render = (url: string, initialProps = {}): string => {
   const sheet = new ServerStyleSheet();
+
   try {
     const stream = renderToString(
       sheet.collectStyles(

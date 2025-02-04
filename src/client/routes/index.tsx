@@ -4,13 +4,15 @@ import { Routes, Route } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { Home, Items, ItemDetail } from "../pages";
 import { Container } from "../components/Container";
+import { HeaderMeta } from "../components/HeaderMeta";
 import { GlobalStyles } from "../styles/GlobalStyles";
 import { SmartSearch } from "../components/SmartSearch";
-import { TestSsr } from "../pages/TestSsr";
+import { HelmetProvider, Helmet } from "react-helmet-async";
 
 export const App = (props: any) => {
   return (
-    <>
+    <HelmetProvider>
+      <HeaderMeta />
       <GlobalStyles />
       <SmartSearch />
       <Container>
@@ -25,6 +27,6 @@ export const App = (props: any) => {
         </Routes>
       </Container>
       <Footer />
-    </>
+    </HelmetProvider>
   );
 };

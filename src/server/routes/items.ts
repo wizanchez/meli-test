@@ -1,15 +1,10 @@
 import express, { Router } from "express";
 import controller from "../controllers/items.controller";
-import middlewares from "../middlewares";
-
-// const route = express.Router();
 
 export default (app: Router) => {
-  //  app.use("/items", route);
   /**
    * GET:  *
    * */
-  // app.get("/items/MLA1970592170", controller.itemList);
   app.get("/items", controller.itemList);
 
   app.get("/items/:id", controller.detail);
