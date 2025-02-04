@@ -34,7 +34,7 @@ export class HomeModel {
 
   public static getJsonStatic = async () => {
     const response = await fetch(
-      "https://futbolwin.com/item-data-last-visited.json"
+      "https://futbolwin.com/meli/item-data-last-visited.json"
     );
     return response.json();
   };
