@@ -35,11 +35,6 @@ export class ItemModel {
     const resp = await Items.find(id);
     const rows = resp?.rows ?? {};
 
-    console.log(
-      "respDescriprespDescriprespDescriprespDescrip",
-      `${id}/description`
-    );
-
     const respDescrip = await Items.find(`${id}/description`);
     const description = respDescrip.val
       ? respDescrip.rows.plain_text
