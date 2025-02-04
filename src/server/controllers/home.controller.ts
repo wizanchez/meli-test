@@ -9,7 +9,7 @@ const dashBoard = async (req: Request, res: Response, next: NextFunction) => {
     const limit = req.query.limit as string;
 
     const categories = await HomeModel.getCategories();
-    const lastItemsVisited = await HomeModel.getLastItemsVisited();
+    const lastItemsVisited: any[] = []; //await HomeModel.getLastItemsVisited();
 
     const dataSend = {
       categories,
