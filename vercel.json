@@ -18,10 +18,6 @@
     {
       "src": "/**",
       "use": "@vercel/static"
-    },
-    {
-      "src": "src/item-data-last-visited.json",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -36,6 +32,10 @@
     {
       "src": "/(.*)",
       "dest": "/src/server/index.ts"
+    },
+    {
+      "src": "src/static/(.*)",
+      "dest": "/static/$1"
     }
   ]
 }
