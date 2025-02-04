@@ -45,7 +45,10 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, "src/empty.json"),
+          from: path.resolve(
+            __dirname,
+            "src/static/item-data-last-visited.json"
+          ),
           to: DATA_FS_ITEMS_LAST_VISITED,
         },
       ],

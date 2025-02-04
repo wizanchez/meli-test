@@ -6,6 +6,7 @@ import { Search, Items } from "../../services/apiMeli";
 import { RESULT_LIMIT } from "../../config/constants";
 import { countDecimals, isNumeric } from "../../utils/var";
 import { shortenDescription } from "../../utils/formatter";
+
 const DATA_FS_ITEMS_LAST_VISITED =
   process.env.REACT_DATA_FS_ITEMS_LAST_VISITED ?? "";
 const filePath = path.join(__dirname, DATA_FS_ITEMS_LAST_VISITED);
@@ -34,11 +35,6 @@ export class ItemModel {
 
     const resp = await Items.find(id);
     const rows = resp?.rows ?? {};
-
-    console.log(
-      "respDescriprespDescriprespDescriprespDescrip",
-      `${id}/description`
-    );
 
     const respDescrip = await Items.find(`${id}/description`);
     const description = respDescrip.val

@@ -5,11 +5,12 @@ import { render } from "../render";
 
 const dashBoard = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const query = req.query.search as string;
-    const limit = req.query.limit as string;
-
     const categories = await HomeModel.getCategories();
-    const lastItemsVisited = await HomeModel.getLastItemsVisited();
+    const host = req.get("host") || "";
+
+    const lastItemsVisited = host.includes("vercel.app")
+      ? await HomeModel.getJsonStatic()
+      : await HomeModel.getLastItemsVisited();
 
     const dataSend = {
       categories,
