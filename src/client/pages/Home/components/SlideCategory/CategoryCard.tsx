@@ -5,12 +5,13 @@ export const CategoryCard = (props: ICategoryCardProps) => {
   const {
     category: {
       name,
+      slug,
       detail: { picture, description },
     },
   } = props;
 
   return (
-    <a className="slide" href={`/items?search=${name}`}>
+    <a className="slide" href={`/items?search=${slug}`}>
       <div className="slide__title">{name}</div>
       <div className="slide__image">
         <div

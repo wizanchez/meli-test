@@ -45,7 +45,7 @@ export class AdapterApiMeli extends Orm {
         err,
         apiMeliDBFetch,
       });
-      throw err;
+      return err;
     }
   }
 

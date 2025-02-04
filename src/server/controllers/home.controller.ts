@@ -9,9 +9,11 @@ const dashBoard = async (req: Request, res: Response, next: NextFunction) => {
     const limit = req.query.limit as string;
 
     const categories = await HomeModel.getCategories();
+    const lastItemsVisited = await HomeModel.getLastItemsVisited();
 
     const dataSend = {
       categories,
+      lastItemsVisited,
     };
     const html = render(req.url, dataSend);
 

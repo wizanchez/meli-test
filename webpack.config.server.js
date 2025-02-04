@@ -1,7 +1,9 @@
 const path = require("path");
 const dotenv = require("dotenv");
 const nodeExternals = require("webpack-node-externals");
-const isDevelopment = process.env.NODE_ENV === "development";
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const DATA_FS_ITEMS_LAST_VISITED =
+  process.env.REACT_DATA_FS_ITEMS_LAST_VISITED ?? "item-data-last-visited.json";
 
 dotenv.config();
 
@@ -39,6 +41,16 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "src/empty.json"),
+          to: DATA_FS_ITEMS_LAST_VISITED,
+        },
+      ],
+    }),
+  ],
   externals: [nodeExternals()],
   resolve: {
     extensions: [".tsx", ".ts", ".js"],

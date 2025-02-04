@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 
 import { Categories } from "../../services/apiMeli";
+import ItemModel from "./items.model";
 
 export class HomeModel {
   public static getCategories = async () => {
@@ -24,6 +25,12 @@ export class HomeModel {
     } catch (err) {
       throw err;
     }
+  };
+
+  public static getLastItemsVisited = async () => {
+    const resp = await ItemModel.getItemLastVisited();
+    console.log("resprespresprespresp___🌈🌈🌈🌈🌈", resp);
+    return resp.rows;
   };
 }
 

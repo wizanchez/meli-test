@@ -1,18 +1,21 @@
-import { useState, useEffect, ChangeEvent, KeyboardEvent } from "react";
+import { useState, useEffect } from "react";
 
 import { pageInitialState } from "../constants";
+import { transformItems } from "../utils/transformItems";
+import { IItemsResponse } from "../../../../services/interfaces";
+import { transformCategories } from "../utils/transformCategories";
 import {
   IInitialsProps,
   IpageInitialState,
 } from "../interfaces/context.interface";
-import { IItemsResponse } from "../../../../services/interfaces";
 
 export const useDashBoard = (props: IInitialsProps) => {
-  const { categories } = props;
+  const { categories, lastItemsVisited } = props;
   const pageInitialHookState: IpageInitialState = {
     ...pageInitialState,
     loading: false,
-    categories: categories ?? [],
+    categories: transformCategories(categories ?? []),
+    lastItemsVisited: transformItems(lastItemsVisited ?? []),
   };
   const [state, setState] = useState<IpageInitialState>(pageInitialHookState);
 

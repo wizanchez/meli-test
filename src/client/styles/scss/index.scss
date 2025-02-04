@@ -466,7 +466,7 @@
     overflow-x: auto;
     white-space: nowrap;
     scroll-behavior: smooth;
-    max-width: 1100px;
+    max-width: var(--max-slider-container);
     padding-bottom: 15px;
 
     & .slider {
@@ -549,6 +549,34 @@
   }
 }
 
+.slider-rows-items {
+  top: initial;
+  width: 100%;
+  padding-top: 15px;
+
+  & .slider-container {
+    width: 100% !important;
+  }
+
+  & .slide__image__ico__item {
+    width: 170px !important;
+    height: 170px !important;
+  }
+
+  & .slide__description {
+    text-align: left !important;
+  }
+
+  & .slide__price {
+    font-size: 24px;
+    padding-left: 16px;
+    width: 183px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 @keyframes changeColorBackground {
   0% {
     background-color: var(--color-quinary);
@@ -565,4 +593,10 @@
   100% {
     background-color: var(--color-quinary);
   }
+}
+
+.card-dashboard {
+  width: 80%;
+  min-width: initial;
+  max-width: var(--max-slider-container);
 }
