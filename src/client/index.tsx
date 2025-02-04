@@ -12,8 +12,13 @@ declare global {
 }
 
 const container = document.getElementById("app");
+const serverDataElement = document.getElementById("server-data");
+let initialProps = {};
+if (serverDataElement && serverDataElement.textContent) {
+  initialProps = JSON.parse(serverDataElement.textContent);
+}
 
-const initialProps = window.__INITIAL_PROPS__;
+// const initialProps = window.__INITIAL_PROPS__;
 
 if (container) {
   hydrateRoot(

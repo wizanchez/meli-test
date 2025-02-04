@@ -5,7 +5,7 @@ import { IHttpResponse, IOrmGet, ISearchResponse } from "../interfaces";
 
 const SITE_ID = process.env.REACT_APP_SITE_ID_API_MELI || "MLA";
 const API_PATH = `/sites/${SITE_ID}`;
-const ENDPOINT_NAME = "/search";
+const ENDPOINT_NAME = "search";
 
 class SearchClass extends AdapterDB {
   constructor(props: any) {
